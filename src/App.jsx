@@ -71,8 +71,8 @@ function App() {
         </p>
         <p className="text-sm sm:text-base md:text-lg text-gray-400">
           June 30th, 2026
-        </p> */}
-        <div className="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        </p>
+        <div className="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-10">
