@@ -89,7 +89,7 @@ function App() {
 
       <div className="mt-8 sm:mt-12 text-center relative z-10">
         <p className="text-gray-400 text-sm sm:text-base">
-          The clock is ticking! 
+          The clock is ticking ! 
         </p>
       </div>
     </div>
