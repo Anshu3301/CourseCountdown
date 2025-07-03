@@ -64,15 +64,15 @@ function App() {
 
       <div className="relative z-10 text-center mb-8 sm:mb-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse-slow">
-          College Countdown
+          Time Left...
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">
+{/*         <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">
           Time remaining until graduation
         </p>
         <p className="text-sm sm:text-base md:text-lg text-gray-400">
           June 30th, 2026
         </p>
-        <div className="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        <div className="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-10">
@@ -89,7 +89,7 @@ function App() {
 
       <div className="mt-8 sm:mt-12 text-center relative z-10">
         <p className="text-gray-400 text-sm sm:text-base">
-          Every moment counts. Make them memorable! 🎓
+          The clock is ticking ! 
         </p>
       </div>
     </div>
