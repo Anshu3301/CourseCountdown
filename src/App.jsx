@@ -3,6 +3,8 @@ import CountdownCard from './components/CountdownCard'
 import './App.css'
 
 function App() {
+
+  // Time Left Calculation
   const [timeLeft, setTimeLeft] = useState({
     months: 0,
     weeks: 0,
@@ -54,6 +56,51 @@ function App() {
     { label: 'MILLISECs', value: timeLeft.milliseconds, color: 'from-teal-500 to-cyan-500' }
   ]
 
+
+  // Time Passed Calculation
+  const [timePassed, setTimePassed] = useState({
+    months: 0,
+    weeks: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0
+  })
+
+  // Set current start date
+  const startDate = new Date('2025-07-07T22:10:59').getTime()
+
+  useEffect(() => {
+      const interval = setInterval(() => {
+      const now = new Date().getTime()
+      const difference = now - startDate
+
+      const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44))
+      const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7))
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+      const milliseconds = Math.floor((difference % 1000) / 10)
+
+      setTimePassed({ months, weeks, days, hours, minutes, seconds, milliseconds })
+    }, 10)
+
+    return () => clearInterval(interval)
+  }, [startDate])
+
+  const passedUnits = [
+    { label: 'Months', value: timePassed.months, color: 'from-purple-500 to-pink-500' },
+    { label: 'Weeks', value: timePassed.weeks, color: 'from-blue-500 to-cyan-500' },
+    { label: 'Days', value: timePassed.days, color: 'from-green-500 to-emerald-500' },
+    { label: 'Hours', value: timePassed.hours, color: 'from-yellow-500 to-orange-500' },
+    { label: 'Minutes', value: timePassed.minutes, color: 'from-red-500 to-pink-500' },
+    { label: 'Seconds', value: timePassed.seconds, color: 'from-indigo-500 to-purple-500' },
+    { label: 'MILLISECs', value: timePassed.milliseconds, color: 'from-teal-500 to-cyan-500' }
+  ]
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Background animated elements */}
@@ -87,6 +134,20 @@ function App() {
         ))}
       </div>
 
+      <h1 className="mt-24 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse-slow">
+          Time Passed...
+        </h1>
+      <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-100">
+        {passedUnits.map((unit, index) => (
+          <CountdownCard
+            key={unit.label}
+            label={unit.label}
+            value={unit.value}
+            color={unit.color}
+            delay={index * 150}
+          />
+        ))}
+      </div>
       <div className="mt-8 sm:mt-12 text-center relative z-10">
         <p className="text-gray-400 text-sm sm:text-base">
           The clock is ticking ! 
