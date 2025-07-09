@@ -15,7 +15,7 @@ function App() {
     milliseconds: 0
   })
 
-  const targetDate = new Date('2026-06-30T23:59:59').getTime()
+  const targetDate = new Date('2026-06-20T23:59:59').getTime()
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -76,23 +76,19 @@ function App() {
       const now = new Date().getTime()
       const difference = now - startDate
 
-      const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44))
-      const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7))
       const days = Math.floor(difference / (1000 * 60 * 60 * 24))
       const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
       const seconds = Math.floor((difference % (1000 * 60)) / 1000)
       const milliseconds = Math.floor((difference % 1000) / 10)
 
-      setTimePassed({ months, weeks, days, hours, minutes, seconds, milliseconds })
+      setTimePassed({ days, hours, minutes, seconds, milliseconds })
     }, 10)
 
     return () => clearInterval(interval)
   }, [startDate])
 
   const passedUnits = [
-    { label: 'Months', value: timePassed.months, color: 'from-purple-500 to-pink-500' },
-    { label: 'Weeks', value: timePassed.weeks, color: 'from-blue-500 to-cyan-500' },
     { label: 'Days', value: timePassed.days, color: 'from-green-500 to-emerald-500' },
     { label: 'Hours', value: timePassed.hours, color: 'from-yellow-500 to-orange-500' },
     { label: 'Minutes', value: timePassed.minutes, color: 'from-red-500 to-pink-500' },
@@ -137,7 +133,7 @@ function App() {
       <h1 className="mt-96 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse-slow">
           Time Passed...
         </h1>
-      <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-100">
+      <div className="mt-36 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-100">
         {passedUnits.map((unit, index) => (
           <CountdownCard
             key={unit.label}
