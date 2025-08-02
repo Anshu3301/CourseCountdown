@@ -73,7 +73,7 @@ function App() {
   })
 
   // Set current start date
-  const startDate = new Date('2025-07-07T22:10:59').getTime()
+  const startDate = new Date('2025-07-30T00:00:00').getTime()
 
   useEffect(() => {
       const interval = setInterval(() => {
@@ -135,7 +135,7 @@ function App() {
       </div>
 
       <h1 className="mt-96 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse-slow">
-          Time Passed...
+         AI Engineer Journey...
         </h1>
       <div className="mt-36 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 max-w-7xl w-full relative z-100">
         {passedUnits.map((unit, index) => (
